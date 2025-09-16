@@ -10,6 +10,7 @@ type DataParser interface {
 	ActionInfo() (string, error)
 }
 
+// Функция обрабатывает слайс строк по экземпляру структур
 func Info(dataset []string, dp DataParser) {
 	for _, data := range dataset {
 		err := dp.Parse(data)
