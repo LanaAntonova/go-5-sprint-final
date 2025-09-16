@@ -17,6 +17,7 @@ type Training struct {
 	personaldata.Personal 
 }
 
+// Метод Parse заполняет структуру Training по строке формата "3456,Ходьба,3h00m" и возвращает  сообщение об ошибке
 func (t *Training) Parse(datastring string) (err error) {
 	vals := strings.Split(datastring, ",")
 	if len(vals) != 3 {
@@ -44,6 +45,7 @@ func (t *Training) Parse(datastring string) (err error) {
 	return nil
 }
 
+// Метод ActionInfo формирует строку с данными о прогулке и возвращает её и сообщение об ошибке
 func (t Training) ActionInfo() (string, error) {
 	switch t.TrainingType {
 	case "Ходьба":
