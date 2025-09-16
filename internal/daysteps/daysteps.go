@@ -16,6 +16,7 @@ type DaySteps struct {
 	personaldata.Personal
 }
 
+// Метод Parse заполняет структуру DaySteps по строке формата "678,0h50m" и возвращает  сообщение об ошибке
 func (ds *DaySteps) Parse(datastring string) (err error) {
 	vals := strings.Split(datastring, ",")
 	if len(vals) != 2 {
@@ -42,6 +43,7 @@ func (ds *DaySteps) Parse(datastring string) (err error) {
 	return nil
 }
 
+// Метод ActionInfo формирует строку с данными о прогулке и возвращает её и сообщение об ошибке
 func (ds DaySteps) ActionInfo() (string, error) {
 	if ds.Weight <= 0 || ds.Height <= 0 {
 		return "", fmt.Errorf("null error: Empty variable value")
